@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="BaseAddress" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">http://192.168.1.12:9002/</Value>
+      <Value Profile="(Default)">http://192.168.206.2:9002/</Value>
     </Setting>
     <Setting Name="WebApiUrl" Type="System.String" Scope="Application">
       <Value Profile="(Default)">https://viraatlabs.com/VAMSDeviceIntegration/api/SpeedFace/</Value>

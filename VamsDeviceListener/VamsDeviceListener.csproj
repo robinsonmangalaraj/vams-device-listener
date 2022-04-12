@@ -103,6 +103,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
+    <Compile Include="WebApiController.cs" />
     <EmbeddedResource Include="frmHttpListener.resx">
       <DependentUpon>frmHttpListener.cs</DependentUpon>
     </EmbeddedResource>
