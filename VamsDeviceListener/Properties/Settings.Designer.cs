@@ -52,7 +52,7 @@ namespace VamsDeviceListener.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute(@"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3VzZXJkYXRhIjoie1wiY29tcGxleElkXCI6XCIxN1wiLFwidmFsaWRpdHlcIjpcIjE2NTIyNTMyMzkwNDVcIn0iLCJuYmYiOjE2MjA3MTcyMzksImV4cCI6MTY1MjI1MzIzOSwiaWF0IjoxNjIwNzE3MjM5LCJpc3MiOiJodHRwczovL3d3dy52YW1zZ2xvYmFsLmNvbSIsImF1ZCI6Imh0dHBzOi8vd3d3LnZhbXNnbG9iYWwuY29tIn0.C8NWZES5WqWrYYfYHlROTi2NcJBuYmeGWkRNlt-2JuE")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Vams-Device-Listener")]
         public string WebApiToken {
             get {
                 return ((string)(this["WebApiToken"]));

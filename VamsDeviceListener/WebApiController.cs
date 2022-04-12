@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Http;
 using AccessControlSDK;
+using Newtonsoft.Json;
 
 namespace VamsDeviceListener
 {
@@ -23,12 +24,52 @@ namespace VamsDeviceListener
         /// <param name="zkVisObj"></param>
         /// <returns></returns>
         [HttpPost]
-        public List<sdkResponseObj> PushApiDetails(string access_token, sdkCallEventList sdk)
+        public sdkResponseObj PushApiDetails(string access_token, sdkCallEventList sdk)
         {
 
-            List<sdkResponseObj> sdkRespList = new List<sdkResponseObj>();
+            sdkResponseObj sdkResp = new sdkResponseObj();
 
-            return sdkRespList;
+            try
+            {
+
+                if (string.Compare(access_token, Properties.Settings.Default.WebApiToken, true) != 0)
+                {
+                    sdkResp.code = "VAL";
+                    sdkResp.showInfoMessage = true;
+                    sdkResp.infoMessage = "Invalid Access Token!";
+                    return sdkResp;
+                }
+
+                if (sdk == null || sdk.zkApiDetList == null || sdk.zkApiDetList.Count == 0)
+                {
+                    sdkResp.code = "VAL";
+                    sdkResp.showInfoMessage = true;
+                    sdkResp.infoMessage = "Event call data not passed!";
+                    return sdkResp;
+                }
+
+                if (Properties.Settings.Default.WriteInfoLog)
+                {
+                    Logs.WriteLog(JsonConvert.SerializeObject(sdk));
+                }
+                
+                Utilities.accCtrl.apiCallEventList = new sdkCallEventList();
+                Utilities.accCtrl.apiCallEventList.zkApiDetList = sdk.zkApiDetList;
+                Utilities.accCtrl.apiTmInterval = Properties.Settings.Default.TmIntervalInMin;
+                Utilities.accCtrl.sdkApiWriteLog = Properties.Settings.Default.WriteInfoLog.ToString();
+
+                sdkResp = Utilities.accCtrl.StartEventListener();
+                               
+
+            }
+            catch (Exception exp)
+            {
+                sdkResp.code = "EXP";
+                sdkResp.hasError = true;
+                sdkResp.errorMessage = exp.ToString();
+            }
+             
+            return sdkResp;
 
         }
 

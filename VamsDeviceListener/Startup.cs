@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Owin;
 using System.Web.Http;
 
-namespace ZKVamsDeviceEngine
+namespace VamsDeviceListener
 {
     public class Startup
     {

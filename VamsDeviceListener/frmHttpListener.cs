@@ -257,7 +257,7 @@ namespace VamsDeviceListener
             UpdateStausBar();
             
             // start self host service
-            WebApp.Start<ZKVamsDeviceEngine.Startup>(Properties.Settings.Default.BaseAddress);
+            WebApp.Start<VamsDeviceListener.Startup>(Properties.Settings.Default.BaseAddress);
 
         }
         
