@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetApiDetails">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetApiDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetApiDetailsResult" type="tns:sdkCallEventList" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="sdkCallEventList">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="zkApiDetList" type="tns:ArrayOfSdkEventsApiDetails" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSdkEventsApiDetails">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="sdkEventsApiDetails" nillable="true" type="tns:sdkEventsApiDetails" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="sdkEventsApiDetails">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="apiURL" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="apiUserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="apiPassword" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="apiTKN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="apiUniqueId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="apiIsEntryEventRequired" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="apiIsElevatorEventRequired" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="apiTimezoneName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="sdkEventFor" type="tns:sdkProcessFor" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="sdkProcessFor">
+        <s:restriction base="s:string">
+          <s:enumeration value="FRSAFARAPI" />
+          <s:enumeration value="ZKBIOPACKAPI" />
+          <s:enumeration value="ZKBIOSECURITYAPI" />
+          <s:enumeration value="GALLAGHERAPI" />
+          <s:enumeration value="BIOSTAR2API" />
+          <s:enumeration value="SIPASSAPI" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="PushRealTimeEvents">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="zkRTD" type="tns:sdkBSEventsRealTimeData" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="sdkBSEventsRealTimeData">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="eventTime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="pin" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="lastName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="deptName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="areaName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cardNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="devSn" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="verifyModeName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="eventName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="eventPointName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="readerName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="accZone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="devName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="logId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="eventNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="photoPath" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="visitorPhoto" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="maskFlag" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="temperature" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="status" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="readerStatus" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="eventResult" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="eventFrom" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="inoutStatus" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="uniqueId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="eventScannedFrom" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="PushRealTimeEventsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PushRealTimeEventsResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PushDisplayMessageEvents">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PushDisplayMessageEventsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PushDisplayMessageEventsResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetApiDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetApiDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetApiDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetApiDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="PushRealTimeEventsSoapIn">
+    <wsdl:part name="parameters" element="tns:PushRealTimeEvents" />
+  </wsdl:message>
+  <wsdl:message name="PushRealTimeEventsSoapOut">
+    <wsdl:part name="parameters" element="tns:PushRealTimeEventsResponse" />
+  </wsdl:message>
+  <wsdl:message name="PushDisplayMessageEventsSoapIn">
+    <wsdl:part name="parameters" element="tns:PushDisplayMessageEvents" />
+  </wsdl:message>
+  <wsdl:message name="PushDisplayMessageEventsSoapOut">
+    <wsdl:part name="parameters" element="tns:PushDisplayMessageEventsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="wsDeviceEventsSoap">
+    <wsdl:operation name="GetApiDetails">
+      <wsdl:input message="tns:GetApiDetailsSoapIn" />
+      <wsdl:output message="tns:GetApiDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PushRealTimeEvents">
+      <wsdl:input message="tns:PushRealTimeEventsSoapIn" />
+      <wsdl:output message="tns:PushRealTimeEventsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PushDisplayMessageEvents">
+      <wsdl:input message="tns:PushDisplayMessageEventsSoapIn" />
+      <wsdl:output message="tns:PushDisplayMessageEventsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="wsDeviceEventsSoap" type="tns:wsDeviceEventsSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetApiDetails">
+      <soap:operation soapAction="http://tempuri.org/GetApiDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PushRealTimeEvents">
+      <soap:operation soapAction="http://tempuri.org/PushRealTimeEvents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PushDisplayMessageEvents">
+      <soap:operation soapAction="http://tempuri.org/PushDisplayMessageEvents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="wsDeviceEventsSoap12" type="tns:wsDeviceEventsSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetApiDetails">
+      <soap12:operation soapAction="http://tempuri.org/GetApiDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PushRealTimeEvents">
+      <soap12:operation soapAction="http://tempuri.org/PushRealTimeEvents" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PushDisplayMessageEvents">
+      <soap12:operation soapAction="http://tempuri.org/PushDisplayMessageEvents" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="wsDeviceEvents">
+    <wsdl:port name="wsDeviceEventsSoap" binding="tns:wsDeviceEventsSoap">
+      <soap:address location="http://localhost:58830/WS/wsDeviceEvents.asmx" />
+    </wsdl:port>
+    <wsdl:port name="wsDeviceEventsSoap12" binding="tns:wsDeviceEventsSoap12">
+      <soap12:address location="http://localhost:58830/WS/wsDeviceEvents.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
