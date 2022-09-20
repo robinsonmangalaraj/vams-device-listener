@@ -536,7 +536,7 @@ namespace VamsDeviceListener
                             zkBSApiDetList = JsonConvert.DeserializeObject<List<sdkEventsApiDetails>>(str);
 
                             Utilities.accCtrl.apiCallEventList = new sdkCallEventList();
-                            Utilities.accCtrl.apiCallEventList.zkApiDetList = zkBSApiDetList;
+                            Utilities.accCtrl.apiCallEventList.apiEventDetList = zkBSApiDetList;
                             Utilities.accCtrl.apiTmInterval = Properties.Settings.Default.TmIntervalInMin;
                             Utilities.accCtrl.sdkApiWriteLog = Properties.Settings.Default.WriteInfoLog.ToString();
 
@@ -571,7 +571,7 @@ namespace VamsDeviceListener
                         zkBSApiDetList = JsonConvert.DeserializeObject<List<sdkEventsApiDetails>>(str);
 
                         Utilities.accCtrl.apiCallEventList = new sdkCallEventList();
-                        Utilities.accCtrl.apiCallEventList.zkApiDetList = zkBSApiDetList;
+                        Utilities.accCtrl.apiCallEventList.apiEventDetList = zkBSApiDetList;
                         Utilities.accCtrl.apiTmInterval = Properties.Settings.Default.TmIntervalInMin;
                         Utilities.accCtrl.sdkApiWriteLog = Properties.Settings.Default.WriteInfoLog.ToString();
 

@@ -40,7 +40,7 @@ namespace VamsDeviceListener
                     return sdkResp;
                 }
 
-                if (sdk == null || sdk.zkApiDetList == null || sdk.zkApiDetList.Count == 0)
+                if (sdk == null || sdk.apiEventDetList == null || sdk.apiEventDetList.Count == 0)
                 {
                     sdkResp.code = "VAL";
                     sdkResp.showInfoMessage = true;
@@ -54,7 +54,7 @@ namespace VamsDeviceListener
                 }
                 
                 Utilities.accCtrl.apiCallEventList = new sdkCallEventList();
-                Utilities.accCtrl.apiCallEventList.zkApiDetList = sdk.zkApiDetList;
+                Utilities.accCtrl.apiCallEventList.apiEventDetList = sdk.apiEventDetList;
                 Utilities.accCtrl.apiTmInterval = Properties.Settings.Default.TmIntervalInMin;
                 Utilities.accCtrl.sdkApiWriteLog = Properties.Settings.Default.WriteInfoLog.ToString();
 
