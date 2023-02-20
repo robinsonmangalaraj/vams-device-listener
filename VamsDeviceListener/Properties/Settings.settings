@@ -21,7 +21,7 @@
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="TmIntervalInMin" Type="System.Single" Scope="Application">
-      <Value Profile="(Default)">0.1</Value>
+      <Value Profile="(Default)">0.7</Value>
     </Setting>
     <Setting Name="RestartApplicationTime" Type="System.String" Scope="Application">
       <Value Profile="(Default)">15:00</Value>
