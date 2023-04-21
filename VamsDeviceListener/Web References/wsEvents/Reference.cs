@@ -23,13 +23,15 @@ namespace VamsDeviceListener.wsEvents {
     
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Web.Services.WebServiceBindingAttribute(Name="wsDeviceEventsSoap", Namespace="http://tempuri.org/")]
     public partial class wsDeviceEvents : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
         private System.Threading.SendOrPostCallback GetApiDetailsOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetApiDetailsRespOperationCompleted;
         
         private System.Threading.SendOrPostCallback PushRealTimeEventsOperationCompleted;
         
@@ -77,6 +79,9 @@ namespace VamsDeviceListener.wsEvents {
         public event GetApiDetailsCompletedEventHandler GetApiDetailsCompleted;
         
         /// <remarks/>
+        public event GetApiDetailsRespCompletedEventHandler GetApiDetailsRespCompleted;
+        
+        /// <remarks/>
         public event PushRealTimeEventsCompletedEventHandler PushRealTimeEventsCompleted;
         
         /// <remarks/>
@@ -106,6 +111,33 @@ namespace VamsDeviceListener.wsEvents {
             if ((this.GetApiDetailsCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.GetApiDetailsCompleted(this, new GetApiDetailsCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetApiDetailsResp", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string GetApiDetailsResp() {
+            object[] results = this.Invoke("GetApiDetailsResp", new object[0]);
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetApiDetailsRespAsync() {
+            this.GetApiDetailsRespAsync(null);
+        }
+        
+        /// <remarks/>
+        public void GetApiDetailsRespAsync(object userState) {
+            if ((this.GetApiDetailsRespOperationCompleted == null)) {
+                this.GetApiDetailsRespOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetApiDetailsRespOperationCompleted);
+            }
+            this.InvokeAsync("GetApiDetailsResp", new object[0], this.GetApiDetailsRespOperationCompleted, userState);
+        }
+        
+        private void OnGetApiDetailsRespOperationCompleted(object arg) {
+            if ((this.GetApiDetailsRespCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetApiDetailsRespCompleted(this, new GetApiDetailsRespCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -187,28 +219,28 @@ namespace VamsDeviceListener.wsEvents {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
     public partial class sdkCallEventList {
         
-        private sdkEventsApiDetails[] zkApiDetListField;
+        private sdkEventsApiDetails[] apiEventDetListField;
         
         /// <remarks/>
-        public sdkEventsApiDetails[] zkApiDetList {
+        public sdkEventsApiDetails[] apiEventDetList {
             get {
-                return this.zkApiDetListField;
+                return this.apiEventDetListField;
             }
             set {
-                this.zkApiDetListField = value;
+                this.apiEventDetListField = value;
             }
         }
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -220,6 +252,8 @@ namespace VamsDeviceListener.wsEvents {
         private string apiUserNameField;
         
         private string apiPasswordField;
+        
+        private string apiWriteLogsField;
         
         private string apiTKNField;
         
@@ -260,6 +294,16 @@ namespace VamsDeviceListener.wsEvents {
             }
             set {
                 this.apiPasswordField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string apiWriteLogs {
+            get {
+                return this.apiWriteLogsField;
+            }
+            set {
+                this.apiWriteLogsField = value;
             }
         }
         
@@ -325,7 +369,7 @@ namespace VamsDeviceListener.wsEvents {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
     [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
     public enum sdkProcessFor {
@@ -347,10 +391,16 @@ namespace VamsDeviceListener.wsEvents {
         
         /// <remarks/>
         SIPASSAPI,
+        
+        /// <remarks/>
+        IMRONAPI,
+        
+        /// <remarks/>
+        KANTECAPI,
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -695,11 +745,11 @@ namespace VamsDeviceListener.wsEvents {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
     public delegate void GetApiDetailsCompletedEventHandler(object sender, GetApiDetailsCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class GetApiDetailsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -721,11 +771,37 @@ namespace VamsDeviceListener.wsEvents {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void GetApiDetailsRespCompletedEventHandler(object sender, GetApiDetailsRespCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetApiDetailsRespCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetApiDetailsRespCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
     public delegate void PushRealTimeEventsCompletedEventHandler(object sender, PushRealTimeEventsCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class PushRealTimeEventsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -747,11 +823,11 @@ namespace VamsDeviceListener.wsEvents {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
     public delegate void PushDisplayMessageEventsCompletedEventHandler(object sender, PushDisplayMessageEventsCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class PushDisplayMessageEventsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {

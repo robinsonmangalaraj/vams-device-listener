@@ -160,6 +160,7 @@
     <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
       <Private>True</Private>
@@ -244,10 +245,10 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="http://localhost:58830/WS/wsDeviceEvents.asmx">
+    <WebReferenceUrl Include="http://localhost:52683/ws/wsDeviceEvents.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\wsEvents\</RelPath>
-      <UpdateFromURL>http://localhost:58830/WS/wsDeviceEvents.asmx</UpdateFromURL>
+      <UpdateFromURL>http://localhost:52683/ws/wsDeviceEvents.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>

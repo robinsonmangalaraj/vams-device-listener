@@ -18,6 +18,7 @@ using Newtonsoft.Json;
 using System.IO;
 using System.Diagnostics;
 using System.Collections.Specialized;
+using System.Web;
 
 namespace VamsDeviceListener
 {
@@ -560,15 +561,15 @@ namespace VamsDeviceListener
 
                         }
 
-                    }
+                    }   
                     else
                     {
 
-                        wsEvents.sdkCallEventList zkBsApiList = wsAPI.GetApiDetails();
+                        wsEvents.sdkCallEventList zkApiDet = wsAPI.GetApiDetails();
 
-                        str = JsonConvert.SerializeObject(zkBsApiList.zkApiDetList);
-
-                        zkBSApiDetList = JsonConvert.DeserializeObject<List<sdkEventsApiDetails>>(str);
+                        str = JsonConvert.SerializeObject(zkApiDet.apiEventDetList);
+                        
+                        zkBSApiDetList =  JsonConvert.DeserializeObject<List<sdkEventsApiDetails>>(str);
 
                         Utilities.accCtrl.apiCallEventList = new sdkCallEventList();
                         Utilities.accCtrl.apiCallEventList.apiEventDetList = zkBSApiDetList;
