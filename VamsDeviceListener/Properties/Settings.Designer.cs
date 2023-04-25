@@ -98,7 +98,7 @@ namespace VamsDeviceListener.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:52683/ws/wsDeviceEvents.asmx")]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://vamsglobal.in/VamsCorporateVer271/ws/wsDeviceEvents.asmx")]
         public string VamsDeviceListener_wsEvents_wsDeviceEvents {
             get {
                 return ((string)(this["VamsDeviceListener_wsEvents_wsDeviceEvents"]));
