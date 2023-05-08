@@ -34,7 +34,7 @@ namespace VamsDeviceListener.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://vamsdev.com/VamsEnterpriseDevDeviceIntegration/api/SpeedFace/")]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://viraatlabs.com/VAMSReleaseDeviceAPi/api/SpeedFace/")]
         public string WebApiUrl {
             get {
                 return ((string)(this["WebApiUrl"]));
@@ -70,7 +70,7 @@ namespace VamsDeviceListener.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool IsRestAPI {
             get {
                 return ((bool)(this["IsRestAPI"]));
