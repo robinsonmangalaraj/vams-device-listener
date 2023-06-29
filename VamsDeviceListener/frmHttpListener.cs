@@ -400,11 +400,11 @@ namespace VamsDeviceListener
             tmrStatusBar.Enabled = true;
             tmrStatusBar.Start();
 
-            tmrRestartApp = new System.Timers.Timer(60 * 1000);
-            tmrRestartApp.Elapsed += tmrRestartApp_Elapsed;
-            tmrRestartApp.AutoReset = true;
-            tmrRestartApp.Enabled = true;
-            tmrRestartApp.Start();
+            //tmrRestartApp = new System.Timers.Timer(60 * 1000);
+            //tmrRestartApp.Elapsed += tmrRestartApp_Elapsed;
+            //tmrRestartApp.AutoReset = true;
+            //tmrRestartApp.Enabled = true;
+            //tmrRestartApp.Start();
             
         }
 
