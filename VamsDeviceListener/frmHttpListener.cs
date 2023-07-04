@@ -887,9 +887,8 @@ namespace VamsDeviceListener
                     //wsAPI.PushDisplayMessageEvents(e.message);
 
                 }
-                
 
-                DisplayMsg(e.message);
+                this.Invoke(new Action(() => DisplayMsg(e.message)));
 
             }
             catch (Exception exp)

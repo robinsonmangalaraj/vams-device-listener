@@ -34,6 +34,7 @@
           <s:element minOccurs="0" maxOccurs="1" name="apiIsElevatorEventRequired" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="apiTimezoneName" type="s:string" />
           <s:element minOccurs="1" maxOccurs="1" name="sdkEventFor" type="tns:sdkProcessFor" />
+          <s:element minOccurs="1" maxOccurs="1" name="apiTmInterval" type="s:float" />
         </s:sequence>
       </s:complexType>
       <s:simpleType name="sdkProcessFor">
@@ -46,18 +47,9 @@
           <s:enumeration value="SIPASSAPI" />
           <s:enumeration value="IMRONAPI" />
           <s:enumeration value="KANTECAPI" />
+          <s:enumeration value="ROSSLAREAPI" />
         </s:restriction>
       </s:simpleType>
-      <s:element name="GetApiDetailsResp">
-        <s:complexType />
-      </s:element>
-      <s:element name="GetApiDetailsRespResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetApiDetailsRespResult" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
       <s:element name="PushRealTimeEvents">
         <s:complexType>
           <s:sequence>
@@ -119,7 +111,6 @@
         </s:complexType>
       </s:element>
       <s:element name="sdkCallEventList" nillable="true" type="tns:sdkCallEventList" />
-      <s:element name="string" nillable="true" type="s:string" />
       <s:element name="boolean" type="s:boolean" />
     </s:schema>
   </wsdl:types>
@@ -128,12 +119,6 @@
   </wsdl:message>
   <wsdl:message name="GetApiDetailsSoapOut">
     <wsdl:part name="parameters" element="tns:GetApiDetailsResponse" />
-  </wsdl:message>
-  <wsdl:message name="GetApiDetailsRespSoapIn">
-    <wsdl:part name="parameters" element="tns:GetApiDetailsResp" />
-  </wsdl:message>
-  <wsdl:message name="GetApiDetailsRespSoapOut">
-    <wsdl:part name="parameters" element="tns:GetApiDetailsRespResponse" />
   </wsdl:message>
   <wsdl:message name="PushRealTimeEventsSoapIn">
     <wsdl:part name="parameters" element="tns:PushRealTimeEvents" />
@@ -151,10 +136,6 @@
   <wsdl:message name="GetApiDetailsHttpGetOut">
     <wsdl:part name="Body" element="tns:sdkCallEventList" />
   </wsdl:message>
-  <wsdl:message name="GetApiDetailsRespHttpGetIn" />
-  <wsdl:message name="GetApiDetailsRespHttpGetOut">
-    <wsdl:part name="Body" element="tns:string" />
-  </wsdl:message>
   <wsdl:message name="PushDisplayMessageEventsHttpGetIn">
     <wsdl:part name="message" type="s:string" />
   </wsdl:message>
@@ -164,10 +145,6 @@
   <wsdl:message name="GetApiDetailsHttpPostIn" />
   <wsdl:message name="GetApiDetailsHttpPostOut">
     <wsdl:part name="Body" element="tns:sdkCallEventList" />
-  </wsdl:message>
-  <wsdl:message name="GetApiDetailsRespHttpPostIn" />
-  <wsdl:message name="GetApiDetailsRespHttpPostOut">
-    <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
   <wsdl:message name="PushDisplayMessageEventsHttpPostIn">
     <wsdl:part name="message" type="s:string" />
@@ -179,10 +156,6 @@
     <wsdl:operation name="GetApiDetails">
       <wsdl:input message="tns:GetApiDetailsSoapIn" />
       <wsdl:output message="tns:GetApiDetailsSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="GetApiDetailsResp">
-      <wsdl:input message="tns:GetApiDetailsRespSoapIn" />
-      <wsdl:output message="tns:GetApiDetailsRespSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="PushRealTimeEvents">
       <wsdl:input message="tns:PushRealTimeEventsSoapIn" />
@@ -198,10 +171,6 @@
       <wsdl:input message="tns:GetApiDetailsHttpGetIn" />
       <wsdl:output message="tns:GetApiDetailsHttpGetOut" />
     </wsdl:operation>
-    <wsdl:operation name="GetApiDetailsResp">
-      <wsdl:input message="tns:GetApiDetailsRespHttpGetIn" />
-      <wsdl:output message="tns:GetApiDetailsRespHttpGetOut" />
-    </wsdl:operation>
     <wsdl:operation name="PushDisplayMessageEvents">
       <wsdl:input message="tns:PushDisplayMessageEventsHttpGetIn" />
       <wsdl:output message="tns:PushDisplayMessageEventsHttpGetOut" />
@@ -212,10 +181,6 @@
       <wsdl:input message="tns:GetApiDetailsHttpPostIn" />
       <wsdl:output message="tns:GetApiDetailsHttpPostOut" />
     </wsdl:operation>
-    <wsdl:operation name="GetApiDetailsResp">
-      <wsdl:input message="tns:GetApiDetailsRespHttpPostIn" />
-      <wsdl:output message="tns:GetApiDetailsRespHttpPostOut" />
-    </wsdl:operation>
     <wsdl:operation name="PushDisplayMessageEvents">
       <wsdl:input message="tns:PushDisplayMessageEventsHttpPostIn" />
       <wsdl:output message="tns:PushDisplayMessageEventsHttpPostOut" />
@@ -225,15 +190,6 @@
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetApiDetails">
       <soap:operation soapAction="http://tempuri.org/GetApiDetails" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetApiDetailsResp">
-      <soap:operation soapAction="http://tempuri.org/GetApiDetailsResp" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -271,15 +227,6 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetApiDetailsResp">
-      <soap12:operation soapAction="http://tempuri.org/GetApiDetailsResp" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="PushRealTimeEvents">
       <soap12:operation soapAction="http://tempuri.org/PushRealTimeEvents" style="document" />
       <wsdl:input>
@@ -310,15 +257,6 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetApiDetailsResp">
-      <http:operation location="/GetApiDetailsResp" />
-      <wsdl:input>
-        <http:urlEncoded />
-      </wsdl:input>
-      <wsdl:output>
-        <mime:mimeXml part="Body" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="PushDisplayMessageEvents">
       <http:operation location="/PushDisplayMessageEvents" />
       <wsdl:input>
@@ -340,15 +278,6 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetApiDetailsResp">
-      <http:operation location="/GetApiDetailsResp" />
-      <wsdl:input>
-        <mime:content type="application/x-www-form-urlencoded" />
-      </wsdl:input>
-      <wsdl:output>
-        <mime:mimeXml part="Body" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="PushDisplayMessageEvents">
       <http:operation location="/PushDisplayMessageEvents" />
       <wsdl:input>
@@ -361,16 +290,16 @@
   </wsdl:binding>
   <wsdl:service name="wsDeviceEvents">
     <wsdl:port name="wsDeviceEventsSoap" binding="tns:wsDeviceEventsSoap">
-      <soap:address location="http://localhost:52683/ws/wsDeviceEvents.asmx" />
+      <soap:address location="https://vamsglobal.in/VamsCorporateVer271/ws/wsDeviceEvents.asmx" />
     </wsdl:port>
     <wsdl:port name="wsDeviceEventsSoap12" binding="tns:wsDeviceEventsSoap12">
-      <soap12:address location="http://localhost:52683/ws/wsDeviceEvents.asmx" />
+      <soap12:address location="https://vamsglobal.in/VamsCorporateVer271/ws/wsDeviceEvents.asmx" />
     </wsdl:port>
     <wsdl:port name="wsDeviceEventsHttpGet" binding="tns:wsDeviceEventsHttpGet">
-      <http:address location="http://localhost:52683/ws/wsDeviceEvents.asmx" />
+      <http:address location="https://vamsglobal.in/VamsCorporateVer271/ws/wsDeviceEvents.asmx" />
     </wsdl:port>
     <wsdl:port name="wsDeviceEventsHttpPost" binding="tns:wsDeviceEventsHttpPost">
-      <http:address location="http://localhost:52683/ws/wsDeviceEvents.asmx" />
+      <http:address location="https://vamsglobal.in/VamsCorporateVer271/ws/wsDeviceEvents.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

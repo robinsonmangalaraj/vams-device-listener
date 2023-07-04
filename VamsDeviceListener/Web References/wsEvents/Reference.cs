@@ -31,8 +31,6 @@ namespace VamsDeviceListener.wsEvents {
         
         private System.Threading.SendOrPostCallback GetApiDetailsOperationCompleted;
         
-        private System.Threading.SendOrPostCallback GetApiDetailsRespOperationCompleted;
-        
         private System.Threading.SendOrPostCallback PushRealTimeEventsOperationCompleted;
         
         private System.Threading.SendOrPostCallback PushDisplayMessageEventsOperationCompleted;
@@ -79,9 +77,6 @@ namespace VamsDeviceListener.wsEvents {
         public event GetApiDetailsCompletedEventHandler GetApiDetailsCompleted;
         
         /// <remarks/>
-        public event GetApiDetailsRespCompletedEventHandler GetApiDetailsRespCompleted;
-        
-        /// <remarks/>
         public event PushRealTimeEventsCompletedEventHandler PushRealTimeEventsCompleted;
         
         /// <remarks/>
@@ -111,33 +106,6 @@ namespace VamsDeviceListener.wsEvents {
             if ((this.GetApiDetailsCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.GetApiDetailsCompleted(this, new GetApiDetailsCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetApiDetailsResp", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public string GetApiDetailsResp() {
-            object[] results = this.Invoke("GetApiDetailsResp", new object[0]);
-            return ((string)(results[0]));
-        }
-        
-        /// <remarks/>
-        public void GetApiDetailsRespAsync() {
-            this.GetApiDetailsRespAsync(null);
-        }
-        
-        /// <remarks/>
-        public void GetApiDetailsRespAsync(object userState) {
-            if ((this.GetApiDetailsRespOperationCompleted == null)) {
-                this.GetApiDetailsRespOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetApiDetailsRespOperationCompleted);
-            }
-            this.InvokeAsync("GetApiDetailsResp", new object[0], this.GetApiDetailsRespOperationCompleted, userState);
-        }
-        
-        private void OnGetApiDetailsRespOperationCompleted(object arg) {
-            if ((this.GetApiDetailsRespCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.GetApiDetailsRespCompleted(this, new GetApiDetailsRespCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -267,6 +235,8 @@ namespace VamsDeviceListener.wsEvents {
         
         private sdkProcessFor sdkEventForField;
         
+        private float apiTmIntervalField;
+        
         /// <remarks/>
         public string apiURL {
             get {
@@ -366,6 +336,16 @@ namespace VamsDeviceListener.wsEvents {
                 this.sdkEventForField = value;
             }
         }
+        
+        /// <remarks/>
+        public float apiTmInterval {
+            get {
+                return this.apiTmIntervalField;
+            }
+            set {
+                this.apiTmIntervalField = value;
+            }
+        }
     }
     
     /// <remarks/>
@@ -397,6 +377,9 @@ namespace VamsDeviceListener.wsEvents {
         
         /// <remarks/>
         KANTECAPI,
+        
+        /// <remarks/>
+        ROSSLAREAPI,
     }
     
     /// <remarks/>
@@ -766,32 +749,6 @@ namespace VamsDeviceListener.wsEvents {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((sdkCallEventList)(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
-    public delegate void GetApiDetailsRespCompletedEventHandler(object sender, GetApiDetailsRespCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class GetApiDetailsRespCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal GetApiDetailsRespCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public string Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
             }
         }
     }

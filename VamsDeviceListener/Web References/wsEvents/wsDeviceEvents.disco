@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
-  <contractRef ref="http://localhost:52683/ws/wsDeviceEvents.asmx?wsdl" docRef="http://localhost:52683/ws/wsDeviceEvents.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
-  <soap address="http://localhost:52683/ws/wsDeviceEvents.asmx" xmlns:q1="http://tempuri.org/" binding="q1:wsDeviceEventsSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
-  <soap address="http://localhost:52683/ws/wsDeviceEvents.asmx" xmlns:q2="http://tempuri.org/" binding="q2:wsDeviceEventsSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <contractRef ref="https://vamsglobal.in/VamsCorporateVer271/ws/wsDeviceEvents.asmx?wsdl" docRef="https://vamsglobal.in/VamsCorporateVer271/ws/wsDeviceEvents.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="https://vamsglobal.in/VamsCorporateVer271/ws/wsDeviceEvents.asmx" xmlns:q1="http://tempuri.org/" binding="q1:wsDeviceEventsSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="https://vamsglobal.in/VamsCorporateVer271/ws/wsDeviceEvents.asmx" xmlns:q2="http://tempuri.org/" binding="q2:wsDeviceEventsSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
 </discovery>

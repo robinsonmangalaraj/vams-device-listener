@@ -245,10 +245,10 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="http://localhost:52683/ws/wsDeviceEvents.asmx">
+    <WebReferenceUrl Include="https://vamsglobal.in/VamsCorporateVer271/ws/wsDeviceEvents.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\wsEvents\</RelPath>
-      <UpdateFromURL>http://localhost:52683/ws/wsDeviceEvents.asmx</UpdateFromURL>
+      <UpdateFromURL>https://vamsglobal.in/VamsCorporateVer271/ws/wsDeviceEvents.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
